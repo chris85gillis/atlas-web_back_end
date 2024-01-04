@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-Atlas fountations / T1 & T2
+Atlas Fountations / T1 & T2
 
 ## Built With
 
