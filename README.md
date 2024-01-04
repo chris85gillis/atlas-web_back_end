@@ -6,7 +6,7 @@
 
 ## Prerequisites
 
-Holberton foundations 9 months
+Atlas fountations / T1 & T2
 
 ## Built With
 
