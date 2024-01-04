@@ -14,7 +14,7 @@ Holberton foundations 9 months
 
 ## Authors
 
---- Chris Gillis  chris85gillis@gmail.com
+--- Chris Gillis / chris85gillis@gmail.com
 
 ## Files
 
