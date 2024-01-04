@@ -25,6 +25,15 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - Your code will be analyzed using the linter ESLint along with specific rules that we’ll provide
 - All of your functions must be exported
 
+# Resources
+
+- [ECMAScript 6 - ECMAScript 2015](https://www.w3schools.com/js/js_es6.asp)
+- [Statements and declarations](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
+- [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- [Default parameters](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements)
+- [Rest parameter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters)
+- [Javascript ES6 - Iterables and Iterators](https://towardsdatascience.com/javascript-es6-iterables-and-iterators-de18b54f4d4)
+
 # Notes
 
 ![JavasScripts ES6-1](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/158e9b3c-97eb-4258-82f7-01e01b94fb52)
