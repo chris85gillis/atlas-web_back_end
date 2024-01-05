@@ -26,3 +26,9 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - [Metaprogramming](https://www.keithcirkel.co.uk/metaprogramming-in-es6-symbols/#symbolspecies)
 
 # Notes
+
+![ES6 Classes-1](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/517f7ce9-3cae-4f84-974e-d508014332fc)
+![ES6 Classes-2](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/e3c80cb0-8c79-4e06-b8da-c3d8856cc6ab)
+![ES6 Classes-3](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/9dbeae85-ba6d-4e50-acff-43e4ab0cd18b)
+![ES6 Classes-4](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/4d204e79-766a-4cbc-90b0-c5b956af6540)
+![ES6 Classes-5](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/9a50d62b-eb07-4c26-b4d9-acd83a5dfb99)
