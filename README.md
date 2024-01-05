@@ -18,7 +18,7 @@ Atlas Fountations / T1 & T2
 
 ## Files
 
-| directories                              | Description                               |
+| Directories                              | Description                               |
 | ---------------------------------------- | ----------------------------------------- |
 | ES6_basic                                | ECMA SCRIPT 6                             |
 | ES6_classes                              | ECMA SCRIPT Classes                       |
