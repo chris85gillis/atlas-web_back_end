@@ -22,4 +22,4 @@ Atlas Fountations / T1 & T2
 | ---------------------------------------- | ----------------------------------------- |
 | ES6_basic                                | ECMA SCRIPT 6                             |
 | ES6_classes                              | ECMA SCRIPT Classes                       |
-| ES6_promise                              | ECMA SCRIPT Promises                      |
+| ES6_data_manipulation                    | ECMA SCRIPT Data Manipulation             |
