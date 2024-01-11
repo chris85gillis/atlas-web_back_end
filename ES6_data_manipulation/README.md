@@ -27,3 +27,6 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - [WeakMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap)
 
 # Notes
+![ES6 Promises-1](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/64e8781d-3039-4792-acc3-79abee998422)
+![ES6 Promises-2](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/3366a39d-7623-4627-b916-50d2a511f48f)
+![ES6 Promises-3](https://github.com/chris85gillis/atlas-web_back_end/assets/126268722/a2c46b09-1f58-4c2a-8f56-43ebc97e4221)
