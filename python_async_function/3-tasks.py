@@ -2,7 +2,7 @@
 """Creates an asyncio.Task for the wait_random coroutine."""
 import asyncio
 
-wait_random = __import__('2-measure_runtime').wait_runtime
+wait_random = __import__('2-measure_runtime').wait_random
 
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
