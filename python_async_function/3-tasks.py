@@ -7,7 +7,7 @@ wait_random = __import__('2-measure_runtime').wait_runtime
 
 def task_wait_random(max_delay: int) -> asyncio.Task:
     """
-    Creates an asyncio.Task for the wait_random coroutine.
+    Takes an integer max_delay and returns a asyncio.Task.
 
     Args:
         max_delay (int): The maximum delay in seconds for the wait_random coroutine.
