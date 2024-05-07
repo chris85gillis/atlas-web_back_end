@@ -27,5 +27,5 @@ Atlas Fountations / T1, T2 & T3
 | ES6_promise                              | ECMA SCRIPT Promises                      |
 | python_async_comprehension               | How to write an asynchronous generator    |
 | python_async_function                    | How to execute async program with asyncio |
-| python_variable_annotations              |                                           |
+| python_variable_annotations              | Type annotations in Python 3              |
 | caching                                  | Different caching algorithms              |
