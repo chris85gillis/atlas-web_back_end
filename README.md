@@ -6,11 +6,12 @@
 
 ## Prerequisites
 
-Atlas Fountations / T1 & T2
+Atlas Fountations / T1, T2 & T3
 
 ## Built With
 
 - ES6
+- Python
 
 ## Authors
 
@@ -24,7 +25,7 @@ Atlas Fountations / T1 & T2
 | ES6_classes                              | ECMA SCRIPT Classes                       |
 | ES6_data_manipulation                    | ECMA SCRIPT Data Manipulation             |
 | ES6_promise                              | ECMA SCRIPT Promises                      |
-| python_async_comprehension               |                                           |
+| python_async_comprehension               | How to write an asynchronous generator    |
 | python_async_function                    |                                           |
 | python_variable_annotations              |                                           |
-| caching                                  | different caching algorithms              |
+| caching                                  | Different caching algorithms              |
