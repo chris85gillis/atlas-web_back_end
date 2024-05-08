@@ -4,6 +4,8 @@ import csv
 import math
 from typing import List, Dict, Union
 
+HypermediaResponse = Dict[str, Union[int, List[List], None]]
+
 
 def index_range(page: int, page_size: int) -> tuple:
     """
@@ -59,7 +61,7 @@ class Server:
         dataset = self.dataset()
         return dataset[start_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> Dict[str, Union[int, List[List], None]]:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> HypermediaResponse:
         """Return a dictionary containing hypermedia pagination information.
 
         Args:
@@ -67,7 +69,8 @@ class Server:
             page_size (int): The number of items per page.
 
         Returns:
-            Dict[str, Union[int, List[List], None]]: A dictionary containing hypermedia pagination information.
+            Dict[str, Union[int, List[List], None]]: A dictionary
+            containing hypermedia pagination information.
         """
         page_data = self.get_page(page, page_size)
         total_pages = math.ceil(len(self.dataset()) / page_size)
