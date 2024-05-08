@@ -4,7 +4,7 @@ import csv
 import math
 from typing import List, Dict, Union
 
-HypermediaResponse = Dict[str, Union[int, List[List], None]]
+HyperResponse = Dict[str, Union[int, List[List], None]]
 
 
 def index_range(page: int, page_size: int) -> tuple:
@@ -61,7 +61,7 @@ class Server:
         dataset = self.dataset()
         return dataset[start_index:end_index]
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> HypermediaResponse:
+    def get_hyper(self, page: int = 1, page_size: int = 10) -> HyperResponse:
         """Return a dictionary containing hypermedia pagination information.
 
         Args:
