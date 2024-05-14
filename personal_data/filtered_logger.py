@@ -81,3 +81,24 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
         database=db_name
     )
     return db
+
+
+def main():
+	"""Runs when the module is executed."""
+	logger = get_logger()
+	db = get_db()
+	cursor = db.cursor()
+	query = 'SELECT * FROM users;'
+	cursor.execute(query)
+	rows = cursor.fetchall()
+	filtered_fields = ', '.join(PII_FIELDS)
+	logger.info(f'Filtered fields: {filtered_fields}')
+	for row in rows:
+		row_dict = dict(zip([column[0] for column in cursor.description], row))
+		log_string = ' '.join([f'{field}={logger.handlers[0].formatter.format(field)};'
+							   for field in row_dict.items()])
+		logger.info(log_string)
+
+
+if __name__ == '__main__':
+	main()
