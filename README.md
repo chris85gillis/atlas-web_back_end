@@ -29,3 +29,5 @@ Atlas Fountations / T1, T2 & T3
 | python_async_function                    | How to execute async program with asyncio |
 | python_variable_annotations              | Type annotations in Python 3              |
 | caching                                  | Different caching algorithms              |
+| pagnation                                | How to implement pagination in API         |
+| personal_data                            | How to securely store personal data        |
