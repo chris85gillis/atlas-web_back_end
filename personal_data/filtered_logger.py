@@ -34,4 +34,4 @@ class RedactingFormatter(logging.Formatter):
         """A description of the entire function, its parameters, and its return types."""
         message = filter_datum(
             self.fields, self.REDACTION, record.getMessage(), self.SEPARATOR)
-        return self._fmt % record.__dict__ + message
+        return self._fmt % record.__dict__.get('asctime', '') + message
