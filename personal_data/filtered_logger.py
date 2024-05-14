@@ -31,7 +31,9 @@ class RedactingFormatter(logging.Formatter):
         self.fields = fields
 
     def format(self, record: logging.LogRecord) -> str:
-        """A description of the entire function, its parameters, and its return types."""
-        message = filter_datum(
-            self.fields, self.REDACTION, record.getMessage(), self.SEPARATOR)
-        return self._fmt % record.__dict__.get('asctime', '') + message
+        """Filter values in incoming log records"""
+        message = record.msg
+        for field in self.fields:
+            message = filter_datum([field], self.REDACTION, message, self.SEPARATOR)
+        record.msg = message
+        return super().format(record)
