@@ -45,7 +45,7 @@ PII_FIELDS = (
     "email",
     "phone",
     "ssn",
-	"password"
+    "password",
 )
 DATA_FILE = "user_data.csv"
 
