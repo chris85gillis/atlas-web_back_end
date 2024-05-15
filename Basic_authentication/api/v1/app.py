@@ -28,4 +28,7 @@ if __name__ == "__main__":
 
 @app.errorhandler(401)
 def unauthorized(error):
+    """
+    Error handler for unauthorized access with a 401 status code.
+    """
     return jsonify({"error": "Unauthorized"}), 401
