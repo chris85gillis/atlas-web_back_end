@@ -18,8 +18,6 @@ auth = None
 
 if getenv("AUTH_TYPE") == "auth":
     auth = Auth()
-elif getenv("AUTH_TYPE") == "basic_auth":
-    auth = BasicAuth()
 
 
 @app.before_request
