@@ -10,9 +10,12 @@ class Auth:
     """public mehtods for authentication"""
     def authorization_header(self, request=None) -> str:
         """Returns the Authorization header value from the request"""
-        if request is None or 'Authorization' not in request.headers:
+        if request is None:
+            return None
+        if 'Authorization' not in request.headers:
             return None
         return request.headers.get('Authorization')
+
 
     def authorization_header(self, request=None) -> str:
         """Returns the value of the Authorization
