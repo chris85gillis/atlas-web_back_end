@@ -7,14 +7,15 @@ from flask import request
 
 
 class Auth:
+    """public mehtods for authentication"""
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
-        """ public method """
+        """Checks if auth is required for a specific path, returning a boolean"""
         return False
 
     def authorization_header(self, request=None) -> str:
-        """ public method """
+        """Returns the authorization header from a request as a string"""
         return None
 
     def current_user(self, request=None) -> TypeVar('User'):
-        """ public method """
+        """Retrieves the current user based on the request as a TypeVar"""
         return None
