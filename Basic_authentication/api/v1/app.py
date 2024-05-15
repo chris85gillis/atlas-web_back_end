@@ -32,4 +32,11 @@ def unauthorized(error):
     """
     Error handler for unauthorized access with a 401 status code.
     """
-    return jsonify({"error": "Unauthorized"}), 401
+    response = jsonify({"error": "Unauthorized"})
+    response.headers.add('Content-Type', 'application/json')
+    return response, 401
+
+if __name__ == "__main__":
+    host = getenv("API_HOST", "0.0.0.0")
+    port = getenv("API_PORT", "5000")
+    app.run(host=host, port=port)
