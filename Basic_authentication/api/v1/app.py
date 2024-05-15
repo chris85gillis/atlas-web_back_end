@@ -52,17 +52,18 @@ def forbidden(error) -> str:
 
 @app.before_request
 def before_request_handler():
-    """filtering the request to be authorized"""
+    """Filtering each request"""
     if auth is None:
         return
-    if request.path not in ['/api/v1/status/', '/api/v1/unauthorized/',
-                            '/api/v1/forbidden/']:
+    excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    if request.path not in excluded_paths:
         if not auth.require_auth(request.path):
             return
     if auth.authorization_header(request) is None:
         abort(401)
     if auth.current_user(request) is None:
         abort(403)
+    return jsonify({"status": "OK"}), 200
 
 
 if __name__ == "__main__":
