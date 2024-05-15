@@ -35,6 +35,7 @@ def before_request() -> str:
     elif auth.current_user(request) is None:
         abort(403)
 
+
 @app.errorhandler(404)
 def not_found(error) -> str:
     """ Not found handler
