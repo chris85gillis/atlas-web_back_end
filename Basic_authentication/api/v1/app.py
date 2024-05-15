@@ -55,7 +55,8 @@ def before_request_handler():
     """Filtering each request"""
     if auth is None:
         return
-    excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']
+    excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/',
+                      '/api/v1/forbidden/']
     if request.path not in excluded_paths:
         if not auth.require_auth(request.path):
             return
@@ -63,7 +64,7 @@ def before_request_handler():
         abort(401)
     if auth.current_user(request) is None:
         abort(403)
-    return jsonify({"status": "OK"}), 200
+    return jsonify({"status": "OK"})
 
 
 if __name__ == "__main__":
