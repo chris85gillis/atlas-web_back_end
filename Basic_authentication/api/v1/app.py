@@ -32,5 +32,4 @@ def unauthorized(error) -> str:
     """
     Error handler for unauthorized access with a 401 status code.
     """
-    response = jsonify({"error": "Unauthorized"})
-    return response, 401
+    return jsonify({"error": "Unauthorized"}), 401
