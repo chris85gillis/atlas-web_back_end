@@ -18,15 +18,16 @@ if getenv("AUTH_TYPE") == "auth":
 
 
 @app.before_request
-def authentication_handler() -> None:
-    """Auth handler"""
-    exceptions = ['/api/v1/status/',
-                  '/api/v1/unauthorized/', '/api/v1/forbidden/']
-    if not auth or not auth.require_auth(request.path, exceptions):
-        return None
-    if not auth.authorization_header(request):
+def before_request_handler():
+    """ Filtering the request to be authorized """
+    if auth is None:
+        return
+    if request.path not in ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']:
+        if not auth.require_auth(request.path):
+            return
+    if auth.authorization_header(request) is None:
         abort(401)
-    if not auth.current_user(request):
+    if auth.current_user(request) is None:
         abort(403)
 
 
