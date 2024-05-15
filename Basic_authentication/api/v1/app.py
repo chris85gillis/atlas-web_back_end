@@ -11,27 +11,15 @@ from api.v1.auth.auth import Auth
 app = Flask(__name__)
 app.register_blueprint(app_views)
 CORS(app, resources={r"/api/v1/*": {"origins": "*"}})
-
 auth = None
 
-auth_type = getenv("AUTH_TYPE")
-if auth_type:
-    if auth_type == "auth":
-        auth = Auth()
-
-
-if auth:
-    from api.v1.auth.auth import Auth
+if getenv("AUTH_TYPE") == "auth":
     auth = Auth()
 
 
 @app.before_request
 def authentication_handler() -> None:
-    """Auth handler
-
-    Returns:
-        [type]: creates an instance of auth
-    """
+    """Auth handler"""
     exceptions = ['/api/v1/status/',
                   '/api/v1/unauthorized/', '/api/v1/forbidden/']
     if not auth or not auth.require_auth(request.path, exceptions):
@@ -40,7 +28,7 @@ def authentication_handler() -> None:
         abort(401)
     if not auth.current_user(request):
         abort(403)
-        
+
 
 @app.errorhandler(404)
 def not_found(error) -> str:
