@@ -55,7 +55,8 @@ def before_request_handler():
     """filtering the request to be authorized"""
     if auth is None:
         return
-    if request.path not in ['/api/v1/status/', '/api/v1/unauthorized/', '/api/v1/forbidden/']:
+    if request.path not in ['/api/v1/status/', '/api/v1/unauthorized/',
+                            '/api/v1/forbidden/']:
         if not auth.require_auth(request.path):
             return
     if auth.authorization_header(request) is None:
