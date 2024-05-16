@@ -5,4 +5,5 @@ class for basic authentications
 
 
 class BasicAuth:
+    """class for BasicAuth"""
     pass
