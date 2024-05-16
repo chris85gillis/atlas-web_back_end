@@ -19,4 +19,3 @@ class BasicAuth(Auth):
             return None
         return authorization_header.split(" ")[1] \
             if len(authorization_header.split(" ")) == 2 else None
-            
