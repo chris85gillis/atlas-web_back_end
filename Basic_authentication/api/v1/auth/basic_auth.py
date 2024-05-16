@@ -72,14 +72,16 @@ class BasicAuth(Auth):
     def current_user(self, request=None) -> User:
         """
         Returns:
-            A User object representing the current user, or None if user retrieval fails.
+            A User object representing the current user,
+            or None if user retrieval fails.
         """
         if request is None:
             return None
         authorization_header = request.headers.get('Authorization')
         if authorization_header is None:
             return None
-        base64_header = self.extract_base64_authorization_header(authorization_header)
+        base64_header = \
+            self.extract_base64_authorization_header(authorization_header)
         if base64_header is None:
             return None
         decoded_header = self.decode_base64_authorization_header(base64_header)
