@@ -31,10 +31,11 @@ def login() -> str:
     return response
 
 
-@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+@app_views.route('/auth_session/logout',
+                 methods=['DELETE'], strict_slashes=False)
 def logout() -> str:
     """Logs out a user using session authentication."""
     if not auth.destroy_session(request):
         abort(404)
     else:
-    	return jsonify(), 200
+        return jsonify(), 200
