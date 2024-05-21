@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Flask view that handles authentication sessions."""
 from flask import jsonify, request
 from api.v1.views import app_views
 from models.user import User
