@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Flask view that handles authentication sessions."""
-from flask import jsonify, request, make_response
+from flask import jsonify, request, make_response, abort
 from api.v1.views import app_views
 from models.user import User
 from api.v1.app import auth
@@ -29,3 +29,12 @@ def login() -> str:
     response.set_cookie(os.getenv('SESSION_NAME'), session_id)
 
     return response
+
+
+@app_views.route('/auth_session/logout', methods=['DELETE'], strict_slashes=False)
+def logout() -> str:
+    """Logs out a user using session authentication."""
+    if not auth.destroy_session(request):
+        abort(404)
+    else:
+    	return jsonify(), 200
