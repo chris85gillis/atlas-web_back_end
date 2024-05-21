@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Flask view that handles authentication sessions."""
-from flask import jsonify, request
+from flask import jsonify, request, make_response
 from api.v1.views import app_views
 from models.user import User
 from api.v1.app import auth
-from os import getenv
+import os
 
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
@@ -25,14 +25,9 @@ def login() -> str:
     if not user[0].is_valid_password(password):
         return jsonify({"error": "wrong password"}), 401
 
-    session_id = auth.create_session(user[0].id)
+    session_id = auth.create_session(user.id)
 
-    response_data = {
-        "email": user[0].email,
-        "first_name": user[0].first_name,
-        "last_name": user[0].last_name
-    }
-
-    response = jsonify(response_data)
-    response.set_cookie(key=getenv("SESSION_NAME", "_my_session_id"), value=session_id)
+    response = make_response(jsonify(user.to_json()))
+    response.set_cookie(os.getenv('SESSION_NAME'), session_id)
+    
     return response
