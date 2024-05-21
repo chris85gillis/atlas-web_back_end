@@ -21,7 +21,6 @@ elif os.getenv('AUTH_TYPE') == 'basic_auth':
     auth = BasicAuth()
 
 
-
 @app.before_request
 def before_request() -> str:
     """ Filtering the request to be authorized """
@@ -37,7 +36,6 @@ def before_request() -> str:
     if auth.current_user(request) is None:
         abort(403)
     
-
 
 @app.errorhandler(404)
 def not_found(error) -> str:
