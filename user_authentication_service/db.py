@@ -38,12 +38,22 @@ class DB:
         self._session.commit()
         return user_to_add
 
-    def find_user_by(self, **kwargs) -> User:
+    def find_user_by(self, **keywords) -> User:
         """Returns the first row found in the users"""
         try:
-            find_usr = self._session.query(User).filter_by(**kwargs).first()
+            find_usr = self._session.query(User).filter_by(**keywords).first()
             if find_usr is None:
                 raise NoResultFound
             return find_usr
         except TypeError:
             raise InvalidRequestError
+
+    def update_user(self, user_id: int, **keywords) -> None:
+        """Update user attributes by user_id"""
+        user = self.find_user_by(id=user_id)
+        for key, value in keywords.items():
+            if hasattr(user, key):
+                setattr(user, key, value)
+            else:
+                raise ValueError
+        self._session.commit()
