@@ -2,11 +2,11 @@
 """
 Module handling password hashing using the bycrypt library.
 """
-import bycrypt
+import bcrypt
 
 
-def hash_password(password: str) -> bytes:
-    """hashes the input password"""
-    salt = bycrypt.gensalt()
-    hased_password = bycrypt.hashpw(password.encode(), salt)
-    return hased_password
+def _hash_password(password: str) -> bytes:
+    '''Hashes password'''
+    byte_repr = password.encode('utf-8')
+    salt = bcrypt.gensalt(rounds=15)
+    return bcrypt.hashpw(byte_repr, salt)
