@@ -5,7 +5,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
-from sqlalchemy.exc import InvalidRequestError, NoResultFound
+from sqlalchemy.exc import InvalidRequestError
+from sqlalchemy.orm.exc import NoResultFound
 from user import Base, User
 
 
@@ -38,7 +39,7 @@ class DB:
         return user_to_add
 
     def find_user_by(self, **kwargs) -> User:
-        '''Returns the first row found in the users'''
+        """Returns the first row found in the users"""
         try:
             find_usr = self._session.query(User).filter_by(**kwargs).first()
             if find_usr is None:
