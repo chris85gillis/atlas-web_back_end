@@ -17,7 +17,7 @@ class Auth:
         self._db = DB()
 
     def register_user(self, email: str, password: str) -> User:
-        '''Register user'''
+        """Register user"""
         try:
             user = self._db.find_user_by(email=email)
             raise ValueError(f'User {email} already exists')
@@ -28,7 +28,7 @@ class Auth:
 
 
 def _hash_password(password: str) -> bytes:
-    '''Hashes password'''
+    """Hashes password"""
     byte_repr = password.encode('utf-8')
     salt = bcrypt.gensalt(rounds=15)
     return bcrypt.hashpw(byte_repr, salt)
