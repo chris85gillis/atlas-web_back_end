@@ -32,3 +32,5 @@ Atlas Fountations / T1, T2 & T3
 | pagnation                                | How to implement pagination in API                     |
 | personal_data                            | How to securely store personal data                    |
 | basic_authentication                     | How to secure a website with HTTP Basic Authentication |
+| Session_authentication                   | How to secure a website with HTTP Session Auth         |
+| user_authentication_service              | How to implement user authentication                   |
