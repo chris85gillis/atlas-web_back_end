@@ -17,6 +17,7 @@ def hello():
 
 @app.route('/users', methods=['POST'])
 def register_user():
+    """register user func"""
     try:
         email = request.form.get('email')
         password = request.form.get('password')
@@ -97,7 +98,7 @@ def update_password() -> str:
     try:
         AUTH.update_password(reset_token, new_password)
         return jsonify({"email": f"{email}", "message":
-            "Password updated"}), 200
+                        "Password updated"}), 200
     except ValueError:
         abort(403)
 
