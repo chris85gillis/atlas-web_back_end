@@ -79,11 +79,11 @@ class Auth:
             pass
 
     def get_reset_password_token(self, email: str) -> str:
-        """Generate a reset password token for a user."""
+        """Generate a reset token"""
         try:
             user = self._db.find_user_by(email=email)
+            reset_token = _generate_uuid()
+            self._db.update_user(user.id, reset_token=reset_token)
+            return reset_token
         except NoResultFound:
-            raise ValueError('User DNE')  # Raise ValueError with the desired message
-        user.reset_token = _generate_uuid()
-        self._db.update_user(user.id, reset_token=user.reset_token)
-        return user.reset_token
+            raise ValueError(f'User with email {email} does not exist')
