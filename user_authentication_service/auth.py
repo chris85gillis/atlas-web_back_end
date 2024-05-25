@@ -87,7 +87,7 @@ class Auth:
         except NoResultFound:
             raise ValueError('No user found')
 
-def update_password(self, reset_token: str, new_password: str) -> None:
+    def update_password(self, reset_token: str, new_password: str) -> None:
         """
         Update the user's password using a reset token.
         """
