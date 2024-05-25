@@ -75,17 +75,17 @@ def profile():
 
 
 @app.route('/reset_password', methods=['POST'])
-def get_reset_password_token(self, email: str) -> str:
-    """
-     Get a reset password token for the user with the given email.
-    """
+def reset_password() -> str:
+    '''Get reset password func'''
+    email = request.form.get('email')
+    if not email:
+        abort(403)
     try:
-        user = self._db.find_user_by(email=email)
-    except NoResultFound:
-        raise ValueError("User does not exist")
-    reset_token = _generate_uuid()
-    self._db.update_user(user.id, reset_token=reset_token)
-    return reset_token
+        reset_token = AUTH.get_reset_password_token(email)
+        return jsonify({"email": f"{email}", "reset_token":
+                        f"{reset_token}"}), 200
+    except ValueError:
+        abort(403)
 
 
 if __name__ == "__main__":
