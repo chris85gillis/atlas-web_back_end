@@ -2,8 +2,6 @@
 """Flask app"""
 from flask import Flask, jsonify, request, abort, redirect
 from auth import Auth
-from sqlalchemy.orm.exc import NoResultFound
-from utils import _generate_uuid
 
 
 app = Flask(__name__)
@@ -76,16 +74,16 @@ def profile():
 
 @app.route('/reset_password', methods=['POST'])
 def reset_password() -> str:
-    """
-    Generate a reset password token for the provided email.
-    """
+    '''Get reset password func'''
     email = request.form.get('email')
+    if not email:
+        abort(403)
     try:
         reset_token = AUTH.get_reset_password_token(email)
-        response_data = {"email": email, "reset_token": reset_token}
-        return jsonify(response_data), 200
+        return jsonify({"email": f"{email}", "reset_token":
+                        f"{reset_token}"}), 200
     except ValueError:
-        return jsonify({"message": "Email not registered"}), 403
+        abort(403)
 
 
 if __name__ == "__main__":
