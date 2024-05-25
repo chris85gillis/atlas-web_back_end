@@ -83,6 +83,7 @@ class Auth:
         try:
             user = self._db.find_user_by(email=email)
             user.reset_token = _generate_uuid()
+            self._db.update_user(user.id, reset_token=user.reset_token)
             return user.reset_token
         except NoResultFound:
             raise ValueError('No user found')
