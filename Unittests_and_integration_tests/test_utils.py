@@ -54,7 +54,6 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
-
     @parameterized.expand([
         ({}, ('a',)),
         ({'a': 1}, ('a', 'b'))
@@ -96,7 +95,8 @@ class TestMemoize(unittest.TestCase):
                 """
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+        with patch.object(TestClass, 'a_method', return_value=42) \
+            as mock_method:
             test_instance = TestClass()
 
             result1 = test_instance.a_property
