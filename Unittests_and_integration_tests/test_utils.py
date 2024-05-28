@@ -30,9 +30,14 @@ class TestMemoize(unittest.TestCase):
                 """
                 return self.a_method()
 
-        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+        with patch.object(TestClass, 'a_method', return_value=42) \
+        as mock_method:
+            """
+            Tests that the memoize decorator correctly caches the result of
+            the a_method method in the TestClass class.
+            """
             test_instance = TestClass()
-            
+
             result1 = test_instance.a_property
             result2 = test_instance.a_property
 
@@ -80,14 +85,13 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
 
-
     @parameterized.expand([
         ({}, ('a',)),
         ({'a': 1}, ('a', 'b'))
     ])
     def test_access_nested_map_exception(self, nested_map, path):
         """
-        Tests that access_nested_map raises a KeyError for the following inputs.
+        Tests that access_nested_map raises KeyError for the following inputs.
         """
         with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
