@@ -45,5 +45,34 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(client.has_license(repo, license_key), expected_return)
 
 
+@parameterized.parameterized_class(
+    "org_name", "org_payload", "repos_payload", "expected_repos",
+    class_fixtures=["org_payload", "repos_payload", "expected_repos"]
+    )
+class TestIntegrationGithubOrgClient(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        import requests
+        from fixtures import org_payload, repos_payload
+        cls.get_patcher = patch.object(
+            requests, "get",
+            side_effect=lambda url: Mock(
+                json=lambda: {
+                    "https://api.github.com/orgs/apache": org_payload,
+                    "https://api.github.com/orgs/apache/repos": repos_payload,
+                    }[url]
+                )
+            )
+        cls.get_patcher.start()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.get_patcher.stop()
+
+    def test_public_repos(self, org_name, org_payload, repos_payload, expected_repos):
+        client = GithubOrgClient(org_name)
+        self.assertEqual(client.public_repos(), expected_repos)
+
+
 if __name__ == "__main__":
     unittest.main()
