@@ -28,14 +28,10 @@ class TestAccessNestedMap(unittest.TestCase):
         """
         Tests that access_nested_map raises a KeyError for the following inputs.
         """
-        with self.assertRaises(KeyError):
+        with self.assertRaises(KeyError) as context:
             access_nested_map(nested_map, path)
-        self.assertEqual(
-            str(KeyError(
-                "Key not found in nested map: {}".format(path)
-            )),
+        self.assertEqual(str(context.exception), f"'{path[-1]}'")
 
-            str(KeyError(
-                "'{}'".format(path[-1])
-            ))
-        )
+
+if __name__ == "__main__":
+    unittest.main()
