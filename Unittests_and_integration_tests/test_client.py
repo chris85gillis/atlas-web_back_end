@@ -13,11 +13,6 @@ class TestGithubOrgClient(unittest.TestCase):
         ('google',),
         ('abc',),
     ])
-    @patch('client.GithubOrgClient.get_json')
-    def test_org(self, org_name, mock_get_json):
-        """
-        Test that GithubOrgClient.org returns the correct value.
-        """
     @patch('client.get_json')
     def test_org(self, org_name, mock_get_json):
         """Test org"""
