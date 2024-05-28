@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+This module contains unit tests for the GithubOrgClient class.
+"""
 import unittest
 from unittest.mock import patch, Mock
 from parameterized import parameterized
@@ -44,10 +47,12 @@ class TestGithubOrgClient(unittest.TestCase):
             {'name': 'repo3'}
     ]
         mock_get_json.return_value = payload
-        mock_public_repos_url.return_value = "https://api.github.com/orgs/testorg/repos"
+        mock_public_repos_url.return_value = (
+            "https://api.github.com/orgs/testorg/repos")
         client = GithubOrgClient('testorg')
         result = client.public_repos()
-        mock_get_json.assert_called_once_with("https://api.github.com/orgs/testorg/repos")
+        mock_get_json.assert_called_once_with(
+            "https://api.github.com/orgs/testorg/repos")
         mock_public_repos_url.assert_called_once()
         self.assertEqual(result, payload)
 
