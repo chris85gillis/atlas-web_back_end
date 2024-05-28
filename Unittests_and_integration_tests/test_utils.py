@@ -2,7 +2,36 @@
 import unittest
 from unittest.mock import Mock, patch
 from parameterized import parameterized
-from utils import get_json, access_nested_map
+from utils import get_json, access_nested_map, memoize
+
+
+class TestMemoize(unittest.TestCase):
+    """
+    Unit tests for the memoize decorator in utils.py
+    """
+    
+    def test_memoize(self):
+        """
+        Tests the memoize decorator from utils.py.
+        """
+        class TestClass:
+            def a_method(self):
+                return 42
+
+            @memoize
+            def a_property(self):
+                return self.a_method()
+
+        with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
+            test_instance = TestClass()
+            
+            result1 = test_instance.a_property
+            result2 = test_instance.a_property
+
+            self.assertEqual(result1, 42)
+            self.assertEqual(result2, 42)
+
+            mock_method.assert_called_once()
 
 
 class TestGetJson(unittest.TestCase):
