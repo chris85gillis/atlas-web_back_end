@@ -13,14 +13,13 @@ class TestGithubOrgClient(unittest.TestCase):
         ('google',),
         ('abc',),
     ])
-    @patch('client.GithubOrgClient.get_json')
-    def test_org(self, org, mock_get_json):
-        """
-        Test that the org attribute is correctly set.
-        """
-        client = GithubOrgClient(org)
-        client.org
-        mock_get_json.assert_called_once_with(GithubOrgClient.ORG_URL.format(org=org))
+    @patch('client.get_json')
+    def test_org(self, org_name, mock_get_json):
+        '''Test org'''
+        client = GithubOrgClient(org_name)
+        client.org()
+        mock_get_json.assert_called_once_with
+        (GithubOrgClient.ORG_URL.format(org=org_name))
 
 
 if __name__ == "__main__":
