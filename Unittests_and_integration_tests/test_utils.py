@@ -9,17 +9,25 @@ class TestMemoize(unittest.TestCase):
     """
     Unit tests for the memoize decorator in utils.py
     """
-    
     def test_memoize(self):
         """
         Tests the memoize decorator from utils.py.
         """
         class TestClass:
+            """
+            A test class to test the memoize decorator in utils.py
+            """
             def a_method(self):
+                """
+                A test method to test the memoize decorator in utils.py.
+                """
                 return 42
 
             @memoize
             def a_property(self):
+                """
+                A test property to test the memoize decorator in utils.py.
+                """
                 return self.a_method()
 
         with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
@@ -71,8 +79,8 @@ class TestAccessNestedMap(unittest.TestCase):
         Tests the function access_nested_map from utils.py.
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
-    
-    
+
+
     @parameterized.expand([
         ({}, ('a',)),
         ({'a': 1}, ('a', 'b'))
