@@ -5,6 +5,7 @@ from parameterized import parameterized
 from client import GithubOrgClient
 from utils import get_json, access_nested_map, memoize
 
+
 class TestGithubOrgClient(unittest.TestCase):
     """
     Tests for the GithubOrgClient class.
@@ -41,14 +42,12 @@ class TestGithubOrgClient(unittest.TestCase):
             {'name': 'repo1'},
             {'name': 'repo2'},
             {'name': 'repo3'}
-        ]
+    ]
         mock_get_json.return_value = payload
-        mock_public_repos_url.return_value = \
-        "https://api.github.com/orgs/testorg/repos"
+        mock_public_repos_url.return_value = "https://api.github.com/orgs/testorg/repos"
         client = GithubOrgClient('testorg')
         result = client.public_repos()
-        mock_get_json.assert_called_once_with
-        ("https://api.github.com/orgs/testorg/repos")
+        mock_get_json.assert_called_once_with("https://api.github.com/orgs/testorg/repos")
         mock_public_repos_url.assert_called_once()
         self.assertEqual(result, payload)
 
