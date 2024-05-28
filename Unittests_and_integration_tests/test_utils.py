@@ -18,3 +18,24 @@ class TestAccessNestedMap(unittest.TestCase):
         Tests the function access_nested_map from utils.py.
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
+    
+    
+    @parameterized.expand([
+        ({}, ('a',)),
+        ({'a': 1}, ('a', 'b'))
+    ])
+    def test_access_nested_map_exception(self, nested_map, path):
+        """
+        Tests that access_nested_map raises a KeyError for the following inputs.
+        """
+        with self.assertRaises(KeyError):
+            access_nested_map(nested_map, path)
+        self.assertEqual(
+            str(KeyError(
+                "Key not found in nested map: {}".format(path)
+            )),
+
+            str(KeyError(
+                "'{}'".format(path[-1])
+            ))
+        )
