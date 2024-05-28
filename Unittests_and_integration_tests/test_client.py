@@ -3,9 +3,11 @@
 This module contains unit tests for the GithubOrgClient class.
 """
 import unittest
+import requests
 from unittest.mock import patch, Mock, PropertyMock
-from parameterized import parameterized
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
+from fixtures import TEST_PAYLOAD
 
 
 class TestGithubOrgClient(unittest.TestCase):
@@ -45,33 +47,32 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(client.has_license(repo, license_key), expected_return)
 
 
-@parameterized.parameterized_class(
-    "org_name", "org_payload", "repos_payload", "expected_repos",
-    class_fixtures=["org_payload", "repos_payload", "expected_repos"]
-    )
+@parameterized_class((
+    "org_payload", "repos_payload", "expected_repos",
+    "appache2_reops"), TEST_PAYLOAD)
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        import requests
-        from fixtures import org_payload, repos_payload
-        cls.get_patcher = patch.object(
-            requests, "get",
-            side_effect=lambda url: Mock(
-                json=lambda: {
-                    "https://api.github.com/orgs/apache": org_payload,
-                    "https://api.github.com/orgs/apache/repos": repos_payload,
-                    }[url]
-                )
-            )
+        """Set up for the class"""
+        parameters = {"return_value.json.side_effect": [
+            cls.org_payload, cls.repos_payload,
+        ]}
+        cls.get_patcher = patch("requests.get", **parameters)
         cls.get_patcher.start()
 
     @classmethod
     def tearDownClass(cls):
+        """
+        Stop the patcher after the test class has finished.
+        """
         cls.get_patcher.stop()
 
-    def test_public_repos(self, org_name, org_payload, repos_payload, expected_repos):
-        client = GithubOrgClient(org_name)
-        self.assertEqual(client.public_repos(), expected_repos)
+    def test_public_repos(self):
+        """
+        Test public_repo method for integration tests
+        """
+        client = GithubOrgClient("Google")
+        self.assertEqual(client.public_repos(), self.expected_repos)
 
 
 if __name__ == "__main__":
