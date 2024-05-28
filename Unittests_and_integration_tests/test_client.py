@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 import unittest
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 from parameterized import parameterized
 from client import GithubOrgClient
 from utils import get_json, access_nested_map, memoize
@@ -32,7 +32,8 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(result, 'https://github.com/test/repo')
 
     @patch('client.get_json')
-    def test_public_repos(self, mock_get_json):
+    @patch('client.GithubOrgClient._public_repos_url', new_callable=Mock)
+    def test_public_repos(self, mock_public_repos_url, mock_get_json):
         """
         Test GithubOrgClient.public_repos method.
         """
@@ -42,10 +43,14 @@ class TestGithubOrgClient(unittest.TestCase):
             {'name': 'repo3'}
         ]
         mock_get_json.return_value = payload
+        mock_public_repos_url.return_value = \
+        "https://api.github.com/orgs/testorg/repos"
         client = GithubOrgClient('testorg')
         result = client.public_repos()
         mock_get_json.assert_called_once_with
         ("https://api.github.com/orgs/testorg/repos")
+        mock_public_repos_url.assert_called_once()
+        self.assertEqual(result, payload)
 
 
 if __name__ == "__main__":
