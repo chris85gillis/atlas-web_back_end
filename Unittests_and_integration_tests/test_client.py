@@ -51,6 +51,9 @@ class TestGithubOrgClient(unittest.TestCase):
     "org_payload", "repos_payload", "expected_repos",
     "appache2_reops"), TEST_PAYLOAD)
 class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """
+    Integration tests for the GithubOrgClient class.
+    """
     @classmethod
     def setUpClass(cls):
         """Set up for the class"""
