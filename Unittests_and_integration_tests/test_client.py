@@ -3,6 +3,7 @@ import unittest
 from unittest.mock import patch
 from parameterized import parameterized
 from client import GithubOrgClient
+from utils import get_json, access_nested_map, memoize
 
 class TestGithubOrgClient(unittest.TestCase):
     """
