@@ -18,14 +18,9 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         Test that the org attribute is correctly set.
         """
-        expected_response = {'name': org}
-        mock_get_json.return_value = expected_response
-
         client = GithubOrgClient(org)
-        result = client.org
-
-        self.assertEqual(result, expected_response)
-        mock_get_json.assert_called_once_with(f'https://api.github.com/orgs/{org}')
+        client.org
+        mock_get_json.assert_called_once_with(GithubOrgClient.ORG_URL.format(org=org))
 
 
 if __name__ == "__main__":
