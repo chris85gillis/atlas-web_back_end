@@ -2,11 +2,11 @@
 """
 Unit tests for utils module.
 """
-
 import unittest
 from unittest.mock import Mock, patch
 from parameterized import parameterized
 from utils import get_json, access_nested_map, memoize
+
 
 class TestGetJson(unittest.TestCase):
     """
@@ -19,7 +19,7 @@ class TestGetJson(unittest.TestCase):
     def test_get_json(self, test_url, test_payload):
         """
         Tests the function get_json from utils.py.
-        
+
         Args:
             test_url (str): The URL to test.
             test_payload (dict): The expected JSON payload.
@@ -47,15 +47,14 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map(self, nested_map, path, expected):
         """
         Tests the function access_nested_map from utils.py.
-        
         Args:
             nested_map (dict): The nested map to test.
             path (tuple): The path of keys to access.
             expected: The expected result.
         """
         self.assertEqual(access_nested_map(nested_map, path), expected)
-    
-    
+
+
     @parameterized.expand([
         ({}, ('a',)),
         ({'a': 1}, ('a', 'b'))
@@ -63,7 +62,6 @@ class TestAccessNestedMap(unittest.TestCase):
     def test_access_nested_map_exception(self, nested_map, path):
         """
         Tests that access_nested_map raises a KeyError for the given inputs.
-        
         Args:
             nested_map (dict): The nested map to test.
             path (tuple): The path of keys to access.
@@ -100,7 +98,7 @@ class TestMemoize(unittest.TestCase):
 
         with patch.object(TestClass, 'a_method', return_value=42) as mock_method:
             test_instance = TestClass()
-            
+
             result1 = test_instance.a_property
             result2 = test_instance.a_property
 
