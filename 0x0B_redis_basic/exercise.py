@@ -5,20 +5,15 @@ from typing import Union, Callable
 from functools import wraps
 
 
-def count_calls(fn: Callable) -> Callable:
+def count_calls(method: Callable) -> Callable:
     """
-    Count how many times a method is called
+    Decorator to count the number of times a method is called.
     """
-
-    @wraps(fn)
+    @wraps(method)
     def wrapper(self, *args, **kwargs):
-        key = fn.__qualname__
-        if self._redis.exists(key):
-            self._redis.incr(key)
-        else:
-            self._redis.set(key, 1)
-        return fn(self, *args, **kwargs)
-
+        key = method.__qualname__
+        self._redis.incr(key)
+        return method(self, *args, **kwargs)
     return wrapper
 
 
