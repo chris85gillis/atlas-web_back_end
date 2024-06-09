@@ -2,6 +2,24 @@
 import uuid
 import redis
 from typing import Union, Callable
+from functools import wraps
+
+
+def count_calls(fn: Callable) -> Callable:
+    """
+    Count how many times a method is called
+    """
+
+    @wraps(fn)
+    def wrapper(self, *args, **kwargs):
+        key = fn.__qualname__
+        if self._redis.exists(key):
+            self._redis.incr(key)
+        else:
+            self._redis.set(key, 1)
+        return fn(self, *args, **kwargs)
+
+    return wrapper
 
 
 class Cache:
