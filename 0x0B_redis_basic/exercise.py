@@ -10,13 +10,12 @@ def count_calls(method: Callable) -> Callable:
     Decorator to count the number of times a method is called.
     """
     key = method.__qualname__
-    
+
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         self._redis.incr(key)
         return method(self, *args, **kwargs)
     return wrapper
-
 
 
 def call_history(method: Callable) -> Callable:
@@ -25,7 +24,7 @@ def call_history(method: Callable) -> Callable:
     """
     input_key = method.__qualname__ + ":inputs"
     output_key = method.__qualname__ + ":outputs"
-    
+
     @wraps(method)
     def wrapper(self, *args, **kwargs):
         self._redis.rpush(input_key, str(args))
@@ -42,9 +41,11 @@ def replay(method: Callable) -> None:
     input_key = method.__qualname__ + ":inputs"
     output_key = method.__qualname__ + ":outputs"
     
-    inputs = [x.decode("utf-8") for x in method.__self__._redis.lrange(input_key, 0, -1)]
-    outputs = [x.decode("utf-8") for x in method.__self__._redis.lrange(output_key, 0, -1)]
-    
+    inputs = [x.decode("utf-8") for x in method.__self__._redis.lrange
+              (input_key, 0, -1)]
+    outputs = [x.decode("utf-8") for x in method.__self__._redis.lrange
+               (output_key, 0, -1)]
+
     print(f"{method.__qualname__} was called {len(inputs)} times:")
     for inp, outp in zip(inputs, outputs):
         print(f"{method.__qualname__}(*{inp}) -> {outp}")
@@ -71,7 +72,8 @@ class Cache:
         self._redis.set(key, data)
         return key
 
-    def get(self, key: str, fn: Callable = None) -> Union[bytes, str, int, float]:
+    def get(self, key: str,
+            fn: Callable = None) -> Union[bytes, str, int, float]:
         """
         Get data from Redis
         """
