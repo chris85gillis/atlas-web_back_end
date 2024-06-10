@@ -5,7 +5,7 @@ USE metal_bands.sql;
 
 -- Select the origin and sum of fans, grouping by origin and ordering by the sum of fans in descending order
 SELECT 
-    origin, 
+    origin AS origin,
     SUM(fans) AS nb_fans 
 FROM 
     metal_bands 
