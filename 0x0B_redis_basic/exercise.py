@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+Module docstring
+"""
 import uuid
 import redis
 from typing import Union, Callable
@@ -41,10 +44,10 @@ def replay(method: Callable) -> None:
     input_key = method.__qualname__ + ":inputs"
     output_key = method.__qualname__ + ":outputs"
     
-    inputs = [x.decode("utf-8") for x in method.__self__._redis.lrange
-              (input_key, 0, -1)]
-    outputs = [x.decode("utf-8") for x in method.__self__._redis.lrange
-               (output_key, 0, -1)]
+    inputs = [x.decode("utf-8")
+              for x in method.__self__._redis.lrange(input_key, 0, -1)]
+    outputs = [x.decode("utf-8")
+              for x in method.__self__._redis.lrange(output_key, 0, -1)]
 
     print(f"{method.__qualname__} was called {len(inputs)} times:")
     for inp, outp in zip(inputs, outputs):
