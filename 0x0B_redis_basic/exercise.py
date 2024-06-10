@@ -47,7 +47,7 @@ def replay(method: Callable) -> None:
     
     print(f"{method.__qualname__} was called {len(inputs)} times:")
     for inp, outp in zip(inputs, outputs):
-        print(f"{method.__qualname__}{inp}) -> {outp}")
+        print(f"{method.__qualname__}(*{inp}) -> {outp}")
 
 
 class Cache:
