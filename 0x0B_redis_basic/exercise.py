@@ -43,11 +43,11 @@ def replay(method: Callable) -> None:
     """
     input_key = method.__qualname__ + ":inputs"
     output_key = method.__qualname__ + ":outputs"
-    
+
     inputs = [x.decode("utf-8")
               for x in method.__self__._redis.lrange(input_key, 0, -1)]
     outputs = [x.decode("utf-8")
-              for x in method.__self__._redis.lrange(output_key, 0, -1)]
+               for x in method.__self__._redis.lrange(output_key, 0, -1)]
 
     print(f"{method.__qualname__} was called {len(inputs)} times:")
     for inp, outp in zip(inputs, outputs):
@@ -70,7 +70,7 @@ class Cache:
     def store(self, data: Union[str, bytes, int, float]) -> str:
         """
         Store data in Redis
-		"""
+        """
         key = str(uuid.uuid4())
         self._redis.set(key, data)
         return key
