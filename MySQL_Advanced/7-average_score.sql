@@ -5,7 +5,7 @@
 -- Finally, it inserts a new correction record into the corrections table with the user_id, project_id, and score parameters.
 
 
-DELIMITER //
+DELIMITER $$
 DROP PROCEDURE IF EXISTS AddBonus;
 CREATE PROCEDURE AddBonus (
     IN user_id INT,
@@ -20,5 +20,5 @@ BEGIN
     SELECT id INTO project_id FROM projects WHERE name = project_name;
 
     INSERT INTO corrections (user_id, project_id, score) VALUES (user_id, project_id, score);
-END //
+END $$
 DELIMITER ;
