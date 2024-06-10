@@ -35,3 +35,4 @@ Atlas Fountations / T1, T2 & T3
 | Session_authentication                   | How to secure a website with HTTP Session Auth         |
 | user_authentication_service              | How to implement user authentication                   |
 | Unittests_and_integration_tests          | How to write unittests & integration tests             |
+| 0x0B_redis_basic                         | How to use redis                                       |
