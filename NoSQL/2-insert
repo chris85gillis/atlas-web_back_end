@@ -1,0 +1,2 @@
+// This file is used to insert data into the school collection in the database. 
+db.school.insert({name: 'Holberton school'})
