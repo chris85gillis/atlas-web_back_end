@@ -7,26 +7,26 @@ and the number of logs with method=GET and path=/status.
 from pymongo import MongoClient
 
 
-def log_stats():
-    """Connect to MongoDB and print statistics"""
-    client = MongoClient("mongodb://localhost:27017/")
-    db = client.logs
-    collection = db["nginx"]
+def log_stats(nginx):
+    """provides stats about Nginx logs stored in MongoDB"""
+    method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    logs = nginx.count_documents({})
+    method_counts = {}
 
-    total_logs = collection.count_documents({})
-    print(f"{total_logs} logs")
+    for m in method:
+        method_counts[m] = nginx.count_documents({'method': m})
 
-    methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-    print("Methods:")
+    status_count = nginx.count_documents({'method': 'GET',
+                                               'path': '/status'})
 
-    for method in methods:
-        method_count = collection.count_documents({"method": method})
-        print(f"\tmethod {method}: {method_count}")
+    print('{} logs'.format(logs))
+    print('Methods:')
 
-    status_check_count = collection.count_documents({"method":
-                                                    "GET", "path": "/status"})
-    print(f"{status_check_count} status check")
+    for m, count in method_counts.items():
+        print('\tmethod {}: {}'.format(m, count))
+
+    print('{} status check'.format(status_count))
 
 
 if __name__ == "__main__":
-    log_stats()
+    log_stats(MongoClient('mongodb://127.0.0.1:27017').logs.nginx)
