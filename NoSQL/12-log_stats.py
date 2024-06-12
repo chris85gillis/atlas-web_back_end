@@ -8,22 +8,18 @@ from pymongo import MongoClient
 
 
 def log_stats():
-    # Connect to MongoDB
+    """Connect to MongoDB and print statistics"""
     client = MongoClient()
     db = client.logs
     collection = db.nginx
 
-    # Total number of logs
     total_logs = collection.count_documents({})
 
-    # Methods count
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     methods_count = {method: collection.count_documents({"method": method}) for method in methods}
 
-    # Number of documents with method=GET and path=/status
     status_check = collection.count_documents({"method": "GET", "path": "/status"})
 
-    # Output results
     print(f"{total_logs} logs")
     print("Methods:")
     for method in methods:
