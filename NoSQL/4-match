@@ -1,0 +1,2 @@
+// Use the $match operator to specify a query filter.
+db.school.find({name: 'Holberton school'})
