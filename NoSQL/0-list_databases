@@ -1,22 +1,2 @@
-#!/usr/bin/node
-//List databases
-
-const MongoClient = require('mongodb').MongoClient;
-const url = 'mongodb://127.0.0.1:27017';
-
-MongoClient.connect(url, (err, client) => {
-  if (err) {
-    console.error(err);
-    return;
-  }
-  const db = client.db('admin');
-  db.collection('users').listCollections().toArray((err, collections) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    collections.sort();
-    collections.forEach(collection => console.log(collection.name));
-    client.close();
-  });
-});
+// shows all databases
+show dbs
