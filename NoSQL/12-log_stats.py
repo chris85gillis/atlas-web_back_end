@@ -1,4 +1,11 @@
+#!/usr/bin/env python3
+"""
+This script connects to a MongoDB instance running locally and counts the
+number of documents in the "nginx" collection. It also counts the number of
+documents for each HTTP method and the number of status checks.
+"""
 import pymongo
+
 
 client = pymongo.MongoClient("mongodb://localhost:27017/")
 db = client["logs"]
