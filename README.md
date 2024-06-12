@@ -36,3 +36,4 @@ Atlas Fountations / T1, T2 & T3
 | user_authentication_service              | How to implement user authentication                   |
 | Unittests_and_integration_tests          | How to write unittests & integration tests             |
 | 0x0B_redis_basic                         | How to use redis                                       |
+| MySQL_Advanced                           | How to use advanced MySQL features                     |
