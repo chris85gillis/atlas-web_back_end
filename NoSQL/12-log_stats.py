@@ -7,26 +7,25 @@ and the number of logs with method=GET and path=/status.
 from pymongo import MongoClient
 
 
-def log_stats(nginx):
+def log_stats():
     """provides stats about Nginx logs stored in MongoDB"""
-    method = ["GET", "POST", "PUT", "PATCH", "DELETE"]
-    logs = nginx.count_documents({})
-    method_counts = {}
+    client = MongoClient()
+    db = client.logs
+    collection = db.nginx
 
-    for m in method:
-        method_counts[m] = nginx.count_documents({'method': m})
+    total_logs = collection.count_documents({})
 
-    status_count = nginx.count_documents({'method': 'GET',
-                                               'path': '/status'})
+    methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
+    methods_count = {method: collection.count_documents({"method": method}) for method in methods}
 
-    print('{} logs'.format(logs))
-    print('Methods:')
+    status_check = collection.count_documents({"method": "GET", "path": "/status"})
 
-    for m, count in method_counts.items():
-        print('\tmethod {}: {}'.format(m, count))
-
-    print('{} status check'.format(status_count))
+    print(f"{total_logs} logs")
+    print("Methods:")
+    for method in methods:
+        print(f"\tmethod {method}: {methods_count[method]}")
+    print(f"{status_check} status check")
 
 
 if __name__ == "__main__":
-    log_stats(MongoClient('mongodb://127.0.0.1:27017').logs.nginx)
+    log_stats()
