@@ -15,21 +15,20 @@ def log_stats():
     db = client["logs"]
     collection = db["nginx"]
 
-    count = collection.count_documents({})
+    total_logs = collection.count_documents({})
+    print(f"{total_logs} logs")
 
-    get_count = collection.count_documents({"method": "GET"})
-    post_count = collection.count_documents({"method": "POST"})
-    put_count = collection.count_documents({"method": "PUT"})
-    patch_count = collection.count_documents({"method": "PATCH"})
-    delete_count = collection.count_documents({"method": "DELETE"})
-
-    status_count = collection.count_documents({"method": "GET", "path": "/status"})
-
-    print(str(count) + " logs")
+    methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     print("Methods:")
-    print("\tmethod GET: " + str(get_count))
-    print("\tmethod POST: " + str(post_count))
-    print("\tmethod PUT: " + str(put_count))
-    print("\tmethod PATCH: " + str(patch_count))
-    print("\tmethod DELETE: " + str(delete_count))
-    print(str(status_count) + " status check")
+
+    for method in methods:
+        method_count = collection.count_documents({"method": method})
+        print(f"\tmethod {method}: {method_count}")
+
+    status_check_count = collection.count_documents({"method":
+                                                    "GET", "path": "/status"})
+    print(f"{status_check_count} status check")
+
+
+if __name__ == "__main__":
+    log_stats()
