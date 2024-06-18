@@ -37,3 +37,4 @@ Atlas Fountations / T1, T2 & T3
 | Unittests_and_integration_tests          | How to write unittests & integration tests             |
 | 0x0B_redis_basic                         | How to use redis                                       |
 | MySQL_Advanced                           | How to use advanced MySQL features                     |
+| NoSQL                                    | How to use NoSQL databases                             |
