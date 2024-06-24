@@ -4,21 +4,21 @@
 	"description": "Unittests in JS",
 	"main": "0-calcul.js",
 	"dependencies": {
-	  "esm": "^3.2.25",
-	  "sinon": "^7.5.0"
+		"esm": "^3.2.25",
+		"sinon": "^7.5.0"
 	},
 	"devDependencies": {
-	  "@babel/cli": "^7.24.7",
-	  "@babel/core": "^7.24.7",
-	  "@babel/preset-env": "^7.24.7",
-	  "chai": "^4.2.0",
-	  "mocha": "^6.2.2"
+		"@babel/cli": "^7.24.7",
+		"@babel/core": "^7.24.7",
+		"@babel/preset-env": "^7.24.7",
+		"chai": "^4.2.0",
+		"mocha": "^6.2.2"
 	},
 	"type": "commonjs",
 	"scripts": {
-	  "test": "mocha"
+		"test": "mocha"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC"
-  }
+}
