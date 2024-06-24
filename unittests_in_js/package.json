@@ -1,17 +1,24 @@
 {
-	"name": "task_0",
+	"name": "unittests_in_js",
 	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"scripts": {
-		"test": "mocha"
-	},
-	"author": "",
-	"license": "ISC",
-	"devDependencies": {
-		"mocha": "^9.1.3"
-	},
+	"description": "Unittests in JS",
+	"main": "0-calcul.js",
 	"dependencies": {
-		"chai": "^5.1.1"
-	}
-}
+	  "esm": "^3.2.25",
+	  "sinon": "^7.5.0"
+	},
+	"devDependencies": {
+	  "@babel/cli": "^7.24.7",
+	  "@babel/core": "^7.24.7",
+	  "@babel/preset-env": "^7.24.7",
+	  "chai": "^4.2.0",
+	  "mocha": "^6.2.2"
+	},
+	"type": "commonjs",
+	"scripts": {
+	  "test": "mocha"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+  }
