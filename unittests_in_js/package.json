@@ -11,8 +11,8 @@
 		"@babel/cli": "^7.24.7",
 		"@babel/core": "^7.24.7",
 		"@babel/preset-env": "^7.24.7",
-		"chai": "^4.2.0",
-		"mocha": "^6.2.2"
+		"chai": "^4.4.1",
+		"mocha": "^10.5.1"
 	},
 	"type": "commonjs",
 	"scripts": {

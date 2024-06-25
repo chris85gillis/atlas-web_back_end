@@ -54,5 +54,11 @@ describe('calculateNumber', () => {
       expect(calculateNumber('DIVIDE', 1.4, 0)).to.equal('Error');
     })
     });
+    it('should return Error if b is equal to 0', function() {
+      expect(calculateNumber('DIVIDE', 10.3, 0).toLowerCase()).to.equal('error');
+      expect(calculateNumber('DIVIDE', 10.7, 0).toLowerCase()).to.equal('error');
+      expect(calculateNumber('DIVIDE', 10.3, 0.3).toLowerCase()).to.equal('error');
+      expect(calculateNumber('DIVIDE', 10.7, 0.2).toLowerCase()).to.equal('error');
+    });
   });
 });
