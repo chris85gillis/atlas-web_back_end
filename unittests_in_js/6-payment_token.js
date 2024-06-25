@@ -1,0 +1,11 @@
+// This file contains a function to get a payment token from the API.
+
+function getPaymentTokenFromAPI(success) {
+  return new Promise((resolve, reject) => {
+    if (success) {
+      resolve({data: 'Successful response from the API'});
+    }
+  });
+}
+
+module.exports = getPaymentTokenFromAPI;
