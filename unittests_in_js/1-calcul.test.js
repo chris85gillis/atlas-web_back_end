@@ -1,6 +1,4 @@
-/**
- * Unit tests for the calculateNumber function.
- */
+// Unit tests for the calculateNumber function.
 
 const assert = require('assert');
 const calculateNumber = require('./1-calcul');
