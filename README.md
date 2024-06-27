@@ -39,3 +39,5 @@ Atlas Fountations / T1, T2 & T3
 | MySQL_Advanced                           | How to use advanced MySQL features                     |
 | NoSQL                                    | How to use NoSQL databases                             |
 | Node_JS                                  | How to use Node.js                                     |
+| queuing_system_in_js                     | How to create a queuing system in Python using Redis   |
+| unittests_in_js                          | How to write unittests in JavaScript                   |
