@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=AUTHENTICATION%20&fontColor=FFFFFF" alt="AUTHENTICATION"/>
+</div>
+
 # Simple API
 
 Simple HTTP API for playing with `User` model.
