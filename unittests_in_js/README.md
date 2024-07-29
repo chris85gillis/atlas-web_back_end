@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=JS%20UNITTESTS&fontColor=FFFFFF" alt="JS Unittests"/>
+</div>
+
 # Unittests in JS
 
 ## Learning Objectives
