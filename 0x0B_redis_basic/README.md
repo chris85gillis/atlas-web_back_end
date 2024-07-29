@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=REDIS%20&fontColor=FFFFFF" alt="REDIS"/>
+</div>
+
 # Learning Objectives
 
 - Learn how to use redis for basic operations.
