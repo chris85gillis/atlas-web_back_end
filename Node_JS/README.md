@@ -1,4 +1,7 @@
-<<<<<<<<<<<<<<  ✨ Codeium Command ⭐ >>>>>>>>>>>>>>>>
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=NODE%20JS&fontColor=FFFFFF" alt="Node JS"/>
+</div>
+
 # Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
@@ -23,4 +26,3 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - Your code will be verified against lint using ESLint
 - Your code needs to pass all the tests and lint. You can verify the entire project running `npm run full-test`
 - All of your functions/classes must be exported by using this format: `module.exports = myFunction;`
-<<<<<<<  e91fa4dd-f4a0-4b5d-b5d5-93e3b9cbb789  >>>>>>>
