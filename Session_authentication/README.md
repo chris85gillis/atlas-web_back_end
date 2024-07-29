@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=SESSION%20AUTH.&fontColor=FFFFFF" alt="Session Authentication"/>
+</div>
+
 # Simple API
 
 Simple HTTP API for playing with `User` model.
