@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=USER%20AUTH.&fontColor=FFFFFF" alt="User Authentication"/>
+</div>
+
 # Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
