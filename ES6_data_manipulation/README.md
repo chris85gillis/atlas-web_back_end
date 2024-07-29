@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=DATA%20MANIPULATION&fontColor=FFFFFF" alt="Data Manipulation"/>
+</div>
+
 # Learning Objectives
 
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
