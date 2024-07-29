@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=MYSQL%20&fontColor=FFFFFF" alt="MySQL"/>
+</div>
+
 # MySql Advanced
 
 ## Task
