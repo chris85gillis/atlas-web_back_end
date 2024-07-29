@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=PERSONAL%20DATA&fontColor=FFFFFF" alt="Personal Data"/>
+</div>
+
 # Atlas-Web Back End - Personal Data
 
 ## Learning Objectives
