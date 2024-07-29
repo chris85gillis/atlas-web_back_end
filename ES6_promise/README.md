@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=300&color=gradient&text=JAVASCRIPT%20PROMISES&fontColor=FFFFFF" alt="Javascript Promises"/>
+</div>
+
 # Learning Objectives
 At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
 
@@ -26,6 +30,3 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 - [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 - [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 - [Throw/Try](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw)
-
-# Notes
-
